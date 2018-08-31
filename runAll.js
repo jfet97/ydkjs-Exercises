@@ -1,3 +1,21 @@
+/*
+    Book: Async & Performance
+    Chapter 4: Generators
+    Generator Concurrency
+
+    "So, as a good supplementary exercise for the reader, try your hand at evolving the code from run()
+    to work like the imagined runAll()...it could take non-Promise values that are yielded and hand them off to the next generator...""
+    
+    Not the best code ever, but it can handle also generators' and promises' errors!
+    
+    How does it work? Ehm...good question XD
+    Before transferring control from one generator to another, this code waits that all the not completed generators are paused.
+    Then it decides which yielded value to use, who to give it to, and which generator to start.
+    It returns an array of Promises, each of which is linked to one of the generators.
+*/
+
+
+
 function runAll(...args) {
 
     let iterators = [];
